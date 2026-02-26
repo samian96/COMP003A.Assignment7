@@ -8,13 +8,16 @@ namespace COMP003A.Assignment7
     {
         static void Main(string[] args)
         {
+            // This programs purpose is to demonstrate the use of Validation, try catch, and working with arrays and lists properly.
+
+            // This is a collection of the list of products, .add is used to add to the list that will be used in this program.
             List<string> products = new List<string>();
             products.Add("Ink");
             products.Add("TestSheet");
             products.Add("Squeeges");
             products.Add("Cleaner");
             products.Add("Adhesive");
-
+            // like the list we are using an array this time to collect the same type, with list we can use more than just string.
             int[] stock = { 3, 15, 5, 2, 0 };
             int sum = 0;
 
@@ -29,9 +32,9 @@ namespace COMP003A.Assignment7
                 string userInput = Console.ReadLine();
                 Console.WriteLine("\n");
 
-                try
-                {
-                    if (userInput == "1" && userInput == "2" && userInput == "3" && userInput == "4")
+                    if (userInput == "1" || userInput == "2" || userInput == "3" || userInput == "4")
+                    { 
+                      try
                     {
                         switch (userInput)
                         {
@@ -66,17 +69,19 @@ namespace COMP003A.Assignment7
                             default:
                                 Console.WriteLine("Invalid input. Please try again.");
                                 break;
-                        }
+                        } 
+                    } catch (FormatException)
+                    {
+                        Console.WriteLine("Invalid please try again");
+                    }
+
                     }
                     else
                     {
                         Console.WriteLine("Invalid input, please try again.");
                     }
-                } catch (FormatException)
-                {
-                    Console.WriteLine("Invalid input, please try again.");
-                }
-            }
+            } // while debugging during the writing of this code, I noticed I could not get case 2 to display properly.
+            // It would display the array and the list multiple times, I had written the logic wrong.
         }
     }
 }
