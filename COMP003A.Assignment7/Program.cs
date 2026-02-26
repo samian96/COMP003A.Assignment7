@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Globalization;
 
 namespace COMP003A.Assignment7
@@ -21,48 +22,59 @@ namespace COMP003A.Assignment7
 
             while (running)
             {
+
                 Console.WriteLine("\n");
                 Console.WriteLine("1. Display Inventory\n2. Show Total\n3. Show Average\n4. Exit Program");
                 Console.Write("Please enter option: ");
                 string userInput = Console.ReadLine();
                 Console.WriteLine("\n");
 
-                switch (userInput)
+                try
                 {
-                    case "1":
-                        
-                        foreach (string product in products)
+                    if (userInput == "1" && userInput == "2" && userInput == "3" && userInput == "4")
+                    {
+                        switch (userInput)
                         {
-                            Console.WriteLine(product);
+                            case "1":
+
+                                foreach (string product in products)
+                                {
+                                    Console.WriteLine(product);
+                                }
+                                break;
+                            case "2":
+
+                                for (int i = 0; i < products.Count; i++)
+                                {
+                                    Console.WriteLine(products[i] + " " + stock[i]);
+                                }
+                                break;
+                            case "3":
+                                foreach (int number in stock)
+                                {
+                                    sum += number;
+                                }
+                                double average = (double)sum / stock.Length;
+
+                                Console.WriteLine("Average is: " + average);
+                                break;
+                            case "4":
+                                Console.WriteLine("End of program.");
+
+                                running = false;
+                                break;
+                            default:
+                                Console.WriteLine("Invalid input. Please try again.");
+                                break;
                         }
-                        break;
-                    case "2":
-
-                        for (int i = 0; i < products.Count; i++)
-                        {
-                            Console.WriteLine(products[i] + " " + stock[i]);
-                        }
-                        break;
-                    case "3": 
-                        foreach (int number in stock)
-                        {
-                            sum += number;
-                        }
-                        double average = (double)sum / stock.Length;
-
-                        Console.WriteLine("Average is: " + average);
-                        break;
-                    case "4":
-                        Console.WriteLine("End of program.");
-
-                        running = false;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid input. Please try again.");
-                        break;
-
-
-                        
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input, please try again.");
+                    }
+                } catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input, please try again.");
                 }
             }
         }
