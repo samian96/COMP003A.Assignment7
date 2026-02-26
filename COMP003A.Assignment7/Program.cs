@@ -20,11 +20,20 @@ namespace COMP003A.Assignment7
             while (running)
             {
                 Console.WriteLine("1. Display Inventory\n2. Show Total\n3. Show Average\n4. Exit Program");
+                Console.Write("Please enter option: ");
                 string userInput = Console.ReadLine();
 
                 switch (userInput)
                 {
+                    case "1":
+                        
+                        foreach (string product in products)
+                        {
+                            Console.WriteLine("\n" + product);
+                        }
+                        break;
 
+                        
                 }
             }
         }
