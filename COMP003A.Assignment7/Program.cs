@@ -1,9 +1,18 @@
-﻿namespace COMP003A.Assignment7
+﻿using System.Collections.Generic;
+
+namespace COMP003A.Assignment7
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            List<string> products = new List<string>();
+            products.Add("Ink");
+            products.Add("TestSheet");
+            products.Add("Squeeges");
+            products.Add("Cleaner");
+            products.Add("Adhesive");
+
             bool running = true;
 
             while (running)
