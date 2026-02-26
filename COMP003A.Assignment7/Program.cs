@@ -36,11 +36,11 @@ namespace COMP003A.Assignment7
                             Console.WriteLine(product);
                         }
                         break;
-                    case "2": 
+                    case "2":
 
-                        for (int i = 0; i < stock.Length; i++)
+                        for (int i = 0; i < products.Count; i++)
                         {
-                            Console.WriteLine(stock[i]);
+                            Console.WriteLine(products[i] + " " + stock[i]);
                         }
                         break;
                     case "3": 
